@@ -1,12 +1,12 @@
 {
-  "name": "Project",
+  "name": "html",
   "version": "1.0.0",
-  "description": "",
+  "description": "Template for quick started projects.",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Dekker",
   "license": "ISC",
   "devDependencies": {
     "bourbon": "^5.1.0",
@@ -20,5 +20,13 @@
     "gulp-sass": "^4.0.1",
     "gulp-uglify": "^3.0.1"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlDekker/Starting-HTML-template.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AlDekker/Starting-HTML-template/issues"
+  },
+  "homepage": "https://github.com/AlDekker/Starting-HTML-template#readme"
 }
