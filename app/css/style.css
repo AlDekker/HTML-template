@@ -1,4 +1,5 @@
 @charset "UTF-8";
+/* Bootstrap */
 *,
 *::before,
 *::after {
@@ -4621,8 +4622,8 @@ a.text-dark:hover, a.text-dark:focus {
  * -------------------------- */
 @font-face {
   font-family: 'FontAwesome';
-  src: url("../fonts/fontawesome-webfont.eot?v=4.7.0");
-  src: url("../fonts/fontawesome-webfont.eot?#iefix&v=4.7.0") format("embedded-opentype"), url("../fonts/fontawesome-webfont.woff2?v=4.7.0") format("woff2"), url("../fonts/fontawesome-webfont.woff?v=4.7.0") format("woff"), url("../fonts/fontawesome-webfont.ttf?v=4.7.0") format("truetype"), url("../fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular") format("svg");
+  src: url("../fonts/FontAwesome/fontawesome-webfont.eot?v=4.7.0");
+  src: url("../fonts/FontAwesome/fontawesome-webfont.eot?#iefix&v=4.7.0") format("embedded-opentype"), url("../fonts/FontAwesome/fontawesome-webfont.woff2?v=4.7.0") format("woff2"), url("../fonts/FontAwesome/fontawesome-webfont.woff?v=4.7.0") format("woff"), url("../fonts/FontAwesome/fontawesome-webfont.ttf?v=4.7.0") format("truetype"), url("../fonts/FontAwesome/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -7663,34 +7664,21 @@ a.text-dark:hover, a.text-dark:focus {
   clip: auto;
 }
 
+/*Example import css-files:*/
 @font-face {
-  font-family: "RobotoRegular";
+  font-family: "Roboto";
+  font-weight: normal;
+  font-style: normal;
+  src: url("../fonts/RobotoRegular/RobotoRegular.eot");
   src: url("../fonts/RobotoRegular/RobotoRegular.eot?#iefix") format("embedded-opentype"), url("../fonts/RobotoRegular/RobotoRegular.woff") format("woff"), url("../fonts/RobotoRegular/RobotoRegular.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: "RobotoBold";
+  font-family: "Roboto";
+  font-weight: bold;
+  font-style: normal;
+  src: url("../fonts/RobotoBold/RobotoBold.eot");
   src: url("../fonts/RobotoBold/RobotoBold.eot?#iefix") format("embedded-opentype"), url("../fonts/RobotoBold/RobotoBold.woff") format("woff"), url("../fonts/RobotoBold/RobotoBold.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "RobotoLight";
-  src: url("../fonts/RobotoLight/RobotoLight.eot?#iefix") format("embedded-opentype"), url("../fonts/RobotoLight/RobotoLight.woff") format("woff"), url("../fonts/RobotoLight/RobotoLight.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "RobotoCondensedBold";
-  src: url("../fonts/RobotoCondensedBold/RobotoCondensedBold.eot?#iefix") format("embedded-opentype"), url("../fonts/RobotoCondensedBold/RobotoCondensedBold.woff") format("woff"), url("../fonts/RobotoCondensedBold/RobotoCondensedBold.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "RobotoCondensedLight";
-  src: url("../fonts/RobotoCondensedLight/RobotoCondensedLight.eot?#iefix") format("embedded-opentype"), url("../fonts/RobotoCondensedLight/RobotoCondensedLight.woff") format("woff"), url("../fonts/RobotoCondensedLight/RobotoCondensedLight.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "RobotoCondensedRegular";
-  src: url("../fonts/RobotoCondensedRegular/RobotoCondensedRegular.eot?#iefix") format("embedded-opentype"), url("../fonts/RobotoCondensedRegular/RobotoCondensedRegular.woff") format("woff"), url("../fonts/RobotoCondensedRegular/RobotoCondensedRegular.ttf") format("truetype");
 }
 
 a, a:hover, a:focus, a:active, button, button:focus, button:active {
@@ -7706,10 +7694,10 @@ body {
   margin: 0;
   padding: 0;
   min-width: 320px;
-  font-family: Arial, sans-serif;
+  font-family: Roboto, sans-serif;
   line-height: 1.5;
   font-size: 16px;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 /*==========  Desktop First  ==========*/
