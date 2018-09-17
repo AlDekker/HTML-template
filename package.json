@@ -1,5 +1,5 @@
 {
-  "name": "html",
+  "name": "Project",
   "version": "1.0.0",
   "description": "Template for quick started projects.",
   "main": "gulpfile.js",
@@ -22,9 +22,6 @@
   "dependencies": {},
   "repository": {
     "type": "git",
-    "url": ""
-  },
-  "bugs": {
     "url": ""
   },
   "homepage": "https://github.com/AlDekker/Starting-HTML-template#readme"
