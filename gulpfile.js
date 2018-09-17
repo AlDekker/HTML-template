@@ -12,8 +12,7 @@ var gulp          = require('gulp'),
 gulp.task('sass', function(){
   return gulp.src('app/sass/**/*.sass')
   .pipe(sass({
-    outputStyle: 'expanded',
-    includePaths: require('bourbon').includePaths
+    outputStyle: 'expanded'
   }).on('error', sass.logError))
   .pipe(autoprefixer({
    browsers: ['last 15 versions'],

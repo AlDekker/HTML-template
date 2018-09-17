@@ -6,13 +6,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Dekker",
+  "author": "Author",
   "license": "ISC",
   "devDependencies": {
-    "bourbon": "^5.1.0",
     "browser-sync": "^2.24.6",
     "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^5.0.0",
+    "gulp-autoprefixer": "^6.0.0",
     "gulp-clean": "^0.4.0",
     "gulp-clean-css": "^3.10.0",
     "gulp-concat": "^2.6.1",
@@ -23,10 +22,10 @@
   "dependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AlDekker/Starting-HTML-template.git"
+    "url": ""
   },
   "bugs": {
-    "url": "https://github.com/AlDekker/Starting-HTML-template/issues"
+    "url": ""
   },
   "homepage": "https://github.com/AlDekker/Starting-HTML-template#readme"
 }
