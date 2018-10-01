@@ -2,6 +2,11 @@
 @import "fonts"
 @import "vars"
 
+*
+  box-sizing: border-box
+  &:before, &:after
+    box-sizing: border-box
+
 a,a:hover, a:focus, a:active, button, button:focus, button:active
   outline: none !important
 
