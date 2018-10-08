@@ -1,6 +1,7 @@
+@import "vars"
 @import "libs"
 @import "fonts"
-@import "vars"
+
 
 *
   box-sizing: border-box
@@ -10,19 +11,31 @@
 a,a:hover, a:focus, a:active, button, button:focus, button:active
   outline: none !important
 
-h1,h2,h3,h4,h5,h6
-	color: #111
+a
+  color: $text-color
+  text-decoration: none
+  transition: all .3s ease
+  &:hover
+    color: $theme-color
 
+h1,h2,h3,h4,h5,h6,
+.h1,.h2,.h3,.h4,.h5,.h6
+  color: $text-color
+
+ul, li
+  margin: 0
+  padding: 0
+  list-style: 0
 
 body
-	position: relative
-	margin: 0
-	padding: 0
-	min-width: 320px
-	font-family: $default-font
-	line-height: 1.5
-	font-size: 16px
-	overflow-x: hidden
+  position: relative
+  margin: 0
+  padding: 0
+  min-width: 320px
+  font-family: $default-font
+  line-height: 1.5
+  font-size: 16px
+  overflow-x: hidden
 
 
 @import "media" // Staying at the end
