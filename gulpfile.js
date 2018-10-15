@@ -5,9 +5,10 @@ var gulp          = require('gulp'),
     concat        = require('gulp-concat'),
     uglify        = require('gulp-uglify'),
     minCss        = require('gulp-clean-css'),
+    imagemin      = require('gulp-imagemin'),
+    cache         = require('gulp-cache'),
     clean         = require('gulp-clean'),
     rename        = require('gulp-rename');
-
 
 gulp.task('sass', function(){
   return gulp.src('app/sass/**/*.sass')
@@ -22,27 +23,24 @@ gulp.task('sass', function(){
   .pipe(browserSync.reload({stream: true}))
 });
 
-
 gulp.task('browserSync' , function(){
-	browserSync({
-		server: {
-			baseDir: 'app'
-		},
-		notify: false,
+  browserSync({
+    server: {
+      baseDir: 'app'
+    },
+    notify: false,
     // tunnel: true,
     // tunnel: "projectname"
-	});
+  });
 });
 
-
 gulp.task('watch', ['browserSync', 'sass'], function(){
-	gulp.watch('app/sass/**/*.sass', ['sass']);
-	gulp.watch('app/js/**/*.js', browserSync.reload);
-	gulp.watch('app/*.html', browserSync.reload);
+  gulp.watch('app/sass/**/*.sass', ['sass']);
+  gulp.watch('app/js/**/*.js', browserSync.reload);
+  gulp.watch('app/*.html', browserSync.reload);
 });
 
 gulp.task('default', ['watch']);
-
 
 /* for building Project */
 
@@ -68,6 +66,11 @@ gulp.task('minJS', function(){
   .pipe(gulp.dest('dist/js'))
 });
 
+gulp.task('minImages', function() {
+  return gulp.src('app/img/**/*')
+  .pipe(cache(imagemin())) // Cache Images
+  .pipe(gulp.dest('dist/img'));
+});
 
 gulp.task('build', ['sass', 'minCSS', 'minJS'], function(){
 
@@ -75,9 +78,9 @@ gulp.task('build', ['sass', 'minCSS', 'minJS'], function(){
 
   // Some files
   gulp.src([
-    'app/*.html',
-    'app/htacce.ss',
-    'app/robots.txt'
+    //'app/.htaccess',
+    //'app/robots.txt',
+    'app/*.html'
     ]).pipe(gulp.dest('dist'));
 
   // JS
@@ -105,14 +108,10 @@ gulp.task('build', ['sass', 'minCSS', 'minJS'], function(){
     'app/img/**/*',
     ]).pipe(gulp.dest('dist/img'));
 
-
-
-
 });
 
-gulp.task('cleanBuild', function () {
+
+gulp.task('buildClean', function () {
   return gulp.src('dist', {read: false})
     .pipe(clean());
 });
-
-
