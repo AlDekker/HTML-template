@@ -72,7 +72,7 @@ gulp.task('minImages', function() {
   .pipe(gulp.dest('dist/img'));
 });
 
-gulp.task('build', ['sass', 'minCSS', 'minJS'], function(){
+gulp.task('build', ['sass', 'minCSS', 'minJS', 'minImages'], function(){
 
   /*After build сhange the paths to the minified files in index.html*/
 

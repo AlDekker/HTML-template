@@ -2,7 +2,6 @@
 @import "libs"
 @import "fonts"
 
-
 *
   box-sizing: border-box
   &:before, &:after
@@ -15,12 +14,15 @@ a
   color: $text-color
   text-decoration: none
   transition: all .3s ease
-  &:hover
+  &:hover, &:focus
     color: $theme-color
+  &:active
+    color: lighten($theme-color, 10%)
 
 h1,h2,h3,h4,h5,h6,
 .h1,.h2,.h3,.h4,.h5,.h6
   color: $text-color
+  text-transform: uppercase
 
 ul, li
   margin: 0
