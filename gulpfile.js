@@ -34,13 +34,15 @@ gulp.task('browserSync' , function(){
   });
 });
 
-gulp.task('watch', ['browserSync', 'sass'], function(){
-  gulp.watch('app/sass/**/*.sass', ['sass']);
+
+gulp.task('watch', function(){
+  gulp.watch('app/sass/**/*.sass', gulp.parallel('sass'));
   gulp.watch('app/js/**/*.js', browserSync.reload);
   gulp.watch('app/*.html', browserSync.reload);
 });
 
-gulp.task('default', ['watch']);
+gulp.task('default', gulp.parallel('watch', 'sass', 'browserSync'));
+
 
 /* for building Project */
 
@@ -72,7 +74,7 @@ gulp.task('minImages', function() {
   .pipe(gulp.dest('dist/img'));
 });
 
-gulp.task('build', ['sass', 'minCSS', 'minJS', 'minImages'], function(){
+gulp.task('build', gulp.parallel('sass', 'minCSS', 'minJS', 'minImages'), function(){
 
   /*After build сhange the paths to the minified files in index.html*/
 
