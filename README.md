@@ -2,7 +2,7 @@
 Template for quick started projects.
 
 ### Include:
-  + Gulp;
+  + Gulp 4;
   + Bower.
 
 ### Libs:
