@@ -31,8 +31,14 @@ gulp.task('sass', function(){
 });
 
 //Scripts
+
 gulp.task('js', function(){
-  return gulp.src(['app/js/*.js', '!app/js/*-min.js'])
+  return gulp.src([
+    'app/libs/jquery/dist/jquery.min.js',
+    'app/libs/likely/likely.js',
+    'app/js/common.js'
+  ])
+  .pipe(concat('all-scripts.js'))
   .pipe(uglify())
   .pipe(rename({
     // prefix: "min-",
@@ -57,7 +63,7 @@ gulp.task('browserSync' , function(){
     },
     notify: false,
     // tunnel: true,
-    // tunnel: "projectname"
+    // tunnel: "wbranch"
   });
 });
 
@@ -69,63 +75,3 @@ gulp.task('watch', function(){
 
 gulp.task('default', gulp.parallel('watch', 'sass', 'js', 'browserSync'));
 
-
-/* for building Project */
-
-gulp.task('minCSS', function(){
-  return gulp.src('app/css/style-min.css')
-  .pipe(gulp.dest('dist/css'))
-});
-
-gulp.task('minJS', function(){
-  return gulp.src('app/js/common.js')
-  .pipe(gulp.dest('dist/js'))
-});
-
-gulp.task('minImages', function() {
-  return gulp.src('app/img/**/*')
-  .pipe(cache(imagemin())) // Cache Images
-  .pipe(gulp.dest('dist/img'));
-});
-
-gulp.task('build', gulp.parallel('sass', 'js', 'html' 'minCSS', 'minJS', 'minImages'), function(){
-
-  // Some files
-  gulp.src([
-    //'app/.htaccess',
-    //'app/robots.txt',
-    'app/*.html'
-    ]).pipe(gulp.dest('dist'));
-
-  // JS
-  gulp.src([
-    'app/js/**/*.js',
-    ]).pipe(gulp.dest('dist/js'));
-
-  // Styles
-  gulp.src([
-    'app/css/**/*.css',
-    ]).pipe(gulp.dest('dist/css'));
-
-  // Fonts
-  gulp.src([
-    'app/fonts/**/*',
-    ]).pipe(gulp.dest('dist/fonts'));
-
-  // Libs
-  gulp.src([
-    'app/libs/**/*',
-    ]).pipe(gulp.dest('dist/libs'));
-
-  // Images
-    gulp.src([
-    'app/img/**/*',
-    ]).pipe(gulp.dest('dist/img'));
-
-});
-
-
-gulp.task('buildClean', function () {
-  return gulp.src('dist', {read: false})
-    .pipe(clean());
-});
