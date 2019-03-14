@@ -1,3 +1,8 @@
+//Settings
+var baseFolder = 'app',
+    buildFolder = 'dist';
+
+//Plugins
 var gulp          = require('gulp'),
     sass          = require('gulp-sass'),
     browserSync   = require('browser-sync'),
@@ -12,7 +17,7 @@ var gulp          = require('gulp'),
 
 //Styles
 gulp.task('sass', function(){
-  return gulp.src('app/sass/**/*.sass')
+  return gulp.src(baseFolder+'/sass/**/*.sass')
   .pipe(sass({
     outputStyle: 'expanded'
   }).on('error', sass.logError))
@@ -23,35 +28,33 @@ gulp.task('sass', function(){
   .pipe(minCss())
   .pipe(rename({
    // prefix: "min-",
-   suffix: "-min",
+   suffix: ".min",
    // extname: ".css"
   })) 
-  .pipe(gulp.dest('app/css'))
+  .pipe(gulp.dest(baseFolder+'/css'))
   .pipe(browserSync.reload({stream: true}))
 });
 
 //Scripts
-
 gulp.task('js', function(){
   return gulp.src([
-    'app/libs/jquery/dist/jquery.min.js',
-    'app/libs/likely/likely.js',
-    'app/js/common.js'
+    baseFolder+'/libs/jquery/dist/jquery.min.js',
+    baseFolder+'/js/common.js'
   ])
   .pipe(concat('all-scripts.js'))
   .pipe(uglify())
   .pipe(rename({
     // prefix: "min-",
-    suffix: "-min",
+    suffix: ".min",
     // extname: ".js"
   }))
-  .pipe(gulp.dest('app/js'))
+  .pipe(gulp.dest(baseFolder+'/js'))
   .pipe(browserSync.reload({stream: true}))
 });
 
 //HTML
 gulp.task('html', function() {
-	return gulp.src('app/*.html')
+	return gulp.src(baseFolder+'/*.html')
 	.pipe(browserSync.reload({ stream: true }))
 });
 
@@ -59,7 +62,7 @@ gulp.task('html', function() {
 gulp.task('browserSync' , function(){
   browserSync({
     server: {
-      baseDir: 'app'
+      baseDir: baseFolder
     },
     notify: false,
     // tunnel: true,
@@ -67,11 +70,18 @@ gulp.task('browserSync' , function(){
   });
 });
 
+
+// gulp.task('clean', function () {  
+//   return gulp.src(buildFolder, {read: false})
+//   .pipe(clean());
+// });   
+
 gulp.task('watch', function(){
-  gulp.watch('app/sass/**/*.sass', gulp.parallel('sass'));
-  gulp.watch(['app/js/**/*.js', '!app/js/*-min.js'], gulp.parallel('js'));
-  gulp.watch('app/*.html', gulp.parallel('html'));
+  gulp.watch(baseFolder+'/sass/**/*.sass', gulp.parallel('sass'));
+  gulp.watch([baseFolder+'/js/**/*.js', '!'+baseFolder+'/js/*.min.js',], gulp.parallel('js'));
+  gulp.watch(baseFolder+'/*.html', gulp.parallel('html'));
 });
 
 gulp.task('default', gulp.parallel('watch', 'sass', 'js', 'browserSync'));
+
 
