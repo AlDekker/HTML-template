@@ -13,18 +13,9 @@ input, select, textarea
 a
   text-decoration: none  
 
-.link
-  color: $text-color
-  text-decoration: none
-  transition: all .3s ease
-  &:hover, &:focus
-    color: $theme-color
-  &:active
-    color: lighten($theme-color, 10%)
-
 h1,h2,h3,h4,h5,h6,
 .h1,.h2,.h3,.h4,.h5,.h6
-  color: $text-color
+  margin: 0
 
 ul, li
   margin: 0
@@ -42,18 +33,38 @@ body
   font-family: $default-font
   color: $text-color
   line-height: 1.5
-  font-size: 16px
+  font-size: $f-size
   overflow-x: hidden
 
+.container
+  max-width: $container-size
+  height: 100%
+  margin: 0 auto
+  padding: 0 $container-padding
+
+//Press the footer to the bottom
 .wrapper 
   display: flex
   flex-direction: column
   height: 100%
 .content 
   flex: 1 0 auto  
-
 .main-footer 
   flex: 0 0 auto
+//
 
+//Header 
+.main-header 
+
+//Footer
+.main-footer
+
+//Content
+
+
+
+
+  
+ 
 
 @import "media" // Staying at the end
