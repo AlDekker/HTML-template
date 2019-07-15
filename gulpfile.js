@@ -1,6 +1,5 @@
 //Settings
-var baseFolder = 'app',
-    buildFolder = 'dist';
+var baseFolder = 'app';
 
 //Plugins
 var gulp          = require('gulp'),
@@ -94,7 +93,7 @@ gulp.task('browserSync' , function(){
     },
     notify: false,
     // tunnel: true,
-    // tunnel: "project"
+    // tunnel: "sstr"
   });
 });
 

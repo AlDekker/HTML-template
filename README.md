@@ -3,14 +3,13 @@ Template for quick started projects.
 
 ### Include:
   + Gulp 4;
-  + Bower.
 
 ### Libs:
 + bootstrap v.4;
-+ jQuery;
++ jQuery 3.4.1;
 + fontawesome;
 + html5shiv;
-+ Modernizr.
+
 
 
 
