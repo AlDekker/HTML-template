@@ -106,6 +106,6 @@ gulp.task('watch', function(){
   gulp.watch(baseFolder+'/*.html', gulp.parallel('html'));
 });
 
-gulp.task('default', gulp.parallel('watch', 'sass', 'js', 'images' , 'svg', 'browserSync'));
+gulp.task('default', gulp.parallel('watch', 'sass', 'js', 'images', 'svg', 'browserSync'));
 
 
