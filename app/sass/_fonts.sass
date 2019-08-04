@@ -6,10 +6,10 @@
     font-style: $f-style
     @if $asset-pipeline == true
       src: font-url('#{$f-src}.eot')
-      src: font-url('#{$f-src}.eot?#iefix') format('embedded-opentype'), font-url('#{$f-src}.woff') format('woff'), font-url('#{$f-src}.ttf') format('truetype')
+      src: font-url('#{$f-src}.eot?#iefix') format('embedded-opentype'), font-url('#{$f-src}.woff2') format('woff2'), font-url('#{$f-src}.woff') format('woff'),  font-url('#{$f-src}.ttf') format('truetype')
     @else
       src: url('#{$f-src}.eot')
-      src: url('#{$f-src}.eot?#iefix') format('embedded-opentype'), url('#{$f-src}.woff') format('woff'), url('#{$f-src}.ttf') format('truetype')
+      src: url('#{$f-src}.eot?#iefix') format('embedded-opentype'), url('#{$f-src}.woff2') format('woff2'), url('#{$f-src}.woff') format('woff'),  url('#{$f-src}.ttf') format('truetype')
 
 /* Fonts */
 
