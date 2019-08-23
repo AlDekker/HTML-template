@@ -1,5 +1,8 @@
 //Settings
-var baseFolder = 'app';
+var baseFolder  = 'app',
+    buildFolder = 'dist';
+
+var scriptsFileName = 'scripts';  
 
 //Plugins
 var gulp          = require('gulp'),
@@ -10,8 +13,9 @@ var gulp          = require('gulp'),
     uglify        = require('gulp-uglify'),
     minCss        = require('gulp-clean-css'),
     imagemin      = require('gulp-imagemin'),
-    cache         = require('gulp-cache'),
-    clean         = require('gulp-clean'),
+    // cache         = require('gulp-cache'),
+    // clean         = require('gulp-clean'),
+    del           = require('del'),
     rename        = require('gulp-rename'),
     svgSprite     = require('gulp-svg-sprite'),
     svgmin        = require('gulp-svgmin'),
@@ -27,6 +31,7 @@ gulp.task('sass', function(){
 		grid: true,
 		overrideBrowserslist: ['last 15 versions']
   }))
+  .pipe(gulp.dest(baseFolder+'/css'))
   .pipe(minCss())
   .pipe(rename({ suffix: ".min" })) 
   .pipe(gulp.dest(baseFolder+'/css'))
@@ -39,7 +44,8 @@ gulp.task('js', function(){
     baseFolder+'/libs/jquery/jquery.min.js',
     baseFolder+'/js/common.js'
   ])
-  .pipe(concat('scripts.js'))
+  .pipe(concat(scriptsFileName+'.js'))
+  .pipe(gulp.dest(baseFolder+'/js'))
   .pipe(uglify())
   .pipe(rename({ suffix: ".min" }))
   .pipe(gulp.dest(baseFolder+'/js'))
@@ -100,7 +106,7 @@ gulp.task('browserSync' , function(){
 //Watch
 gulp.task('watch', function(){
   gulp.watch(baseFolder+'/sass/**/*.sass', gulp.parallel('sass'));
-  gulp.watch([baseFolder+'/js/**/*.js', '!'+baseFolder+'/js/*.min.js',], gulp.parallel('js'));
+  gulp.watch([baseFolder+'/js/**/*.js', '!'+baseFolder+'/js/*.min.js', '!'+baseFolder+'/js/'+scriptsFileName+'.js'], gulp.parallel('js'));
   gulp.watch(baseFolder+'/img/**/*', gulp.parallel('images'));
   gulp.watch(baseFolder+'/img/icons/svg/*.svg', gulp.parallel('svg'));
   gulp.watch(baseFolder+'/*.html', gulp.parallel('html'));
@@ -109,3 +115,29 @@ gulp.task('watch', function(){
 gulp.task('default', gulp.parallel('watch', 'sass', 'js', 'images', 'svg', 'browserSync'));
 
 
+gulp.task('removeBuild', function() {
+  return del(buildFolder);
+});
+
+gulp.task('build', function(){
+
+  // gulp.src([baseFolder+'/**/*', '!'+baseFolder+'/sass/**/*']).pipe(gulp.dest(buildFolder));
+
+  gulp.src([
+    baseFolder+'/*.html',
+	  // baseFolder+'/.htaccess',
+    // baseFolder+'/htacce.ss',
+    baseFolder+'/robots.txt'
+    ]).pipe(gulp.dest(buildFolder));
+
+  gulp.src([baseFolder+'/img/**/*']).pipe(gulp.dest(buildFolder+'/img'));
+
+  gulp.src([baseFolder+'/css/*.css']).pipe(gulp.dest(buildFolder+'/css'));
+
+  gulp.src([baseFolder+'/js/scripts.min.js']).pipe(gulp.dest(buildFolder+'/js'));
+
+  gulp.src([baseFolder+'/libs/**/*']).pipe(gulp.dest(buildFolder+'/libs'));
+
+  gulp.src([baseFolder+'/fonts/**/*']).pipe(gulp.dest(buildFolder+'/fonts'));
+
+});

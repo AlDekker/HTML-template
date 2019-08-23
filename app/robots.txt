@@ -1,22 +1,25 @@
 User-agent: *
-Allow: /img/
-Disallow: /js/
-Disallow: /css/
-Disallow: /libs/
-Disallow: /fonts/
-Disallow: /scripts/
-Disallow: /cgi-bin/
+Disallow: /
 
-User-agent: Googlebot
-Allow: /
+#User-agent: *
+#Allow: /img/
+#Disallow: /js/
+#Disallow: /css/
+#Disallow: /libs/
+#Disallow: /fonts/
+#Disallow: /scripts/
+#Disallow: /cgi-bin/
 
-User-agent: Yandex
-Allow: /img/
-Disallow: /js/
-Disallow: /css/
-Disallow: /libs/
-Disallow: /fonts/
-Disallow: /scripts/
-Disallow: /cgi-bin/
+#User-agent: Googlebot
+#Allow: /
 
-Host: sitename.ru
+#User-agent: Yandex
+#Allow: /img/
+#Disallow: /js/
+#Disallow: /css/
+#Disallow: /libs/
+#Disallow: /fonts/
+#Disallow: /scripts/
+#Disallow: /cgi-bin/
+
+#Host: sitename.ru
