@@ -1,6 +1,6 @@
 {
-  "name": "Project",
-  "version": "1.0.0",
+  "name": "HTML-template",
+  "version": "1",
   "description": "Template for quick started projects.",
   "main": "gulpfile.js",
   "scripts": {
@@ -27,12 +27,13 @@
     "gulp-svgmin": "^2.2.0",
     "gulp-uglify": "^3.0.2"
   },
+  "repository": "https://github.com/AlDekker/HTML-template",
+  "homepage": "https://github.com/AlDekker/HTML-template#readme",
   "dependencies": {
-    "npm": "^6.10.1"
-  },
-  "repository": {
-    "type": "git",
-    "url": ""
-  },
-  "homepage": "https://github.com/AlDekker/HTML-template#readme"
+    "bootstrap-4-grid": "^3.2.0",
+    "jquery": "^3.4.1",
+    "magnific-popup": "^1.1.0",
+    "normalize.css": "^8.0.1",
+    "slick-carousel": "^1.8.1"
+  }
 }

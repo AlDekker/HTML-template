@@ -1,6 +1,8 @@
 //Settings
 var baseFolder  = 'app',
-    buildFolder = 'dist';
+    buildFolder = 'dist',
+    pluginsFolder = 'node_modules';
+
 
 var scriptsFileName = 'scripts';  
 
@@ -13,8 +15,6 @@ var gulp          = require('gulp'),
     uglify        = require('gulp-uglify'),
     minCss        = require('gulp-clean-css'),
     imagemin      = require('gulp-imagemin'),
-    // cache         = require('gulp-cache'),
-    // clean         = require('gulp-clean'),
     del           = require('del'),
     rename        = require('gulp-rename'),
     svgSprite     = require('gulp-svg-sprite'),
@@ -41,7 +41,9 @@ gulp.task('sass', function(){
 //Scripts
 gulp.task('js', function(){
   return gulp.src([
-    baseFolder+'/libs/jquery/jquery.min.js',
+    pluginsFolder+'/jquery/dist/jquery.js',
+    // pluginsFolder+'/magnific-popup/dist/jquery.magnific-popup.js',
+    // pluginsFolder+'/slick-carousel/slick/slick.js',
     baseFolder+'/js/common.js'
   ])
   .pipe(concat(scriptsFileName+'.js'))
@@ -98,8 +100,7 @@ gulp.task('browserSync' , function(){
       baseDir: baseFolder
     },
     notify: false,
-    // tunnel: true,
-    // tunnel: "sstr"
+    // tunnel: true
   });
 });
 
